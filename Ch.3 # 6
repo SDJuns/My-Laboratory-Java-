@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class practiceWithMy8 {
+public static void main(String[] args) {
+	int arr[] = new int[10];
+	int sum = 0;
+	Scanner s = new Scanner(System.in);
+	
+	System.out.print("Random numbers : ");
+	for(int j = 0; j < arr.length; j++) {
+		int i = (int)(Math.random() * 10 + 1);
+		System.out.print(i + " ");
+		arr[j] = i;
+		sum += i;
+	}
+	System.out.println();
+	double result = (double)sum/arr.length;
+	System.out.print("average is " + result);
+	s.close();
+}
+}
