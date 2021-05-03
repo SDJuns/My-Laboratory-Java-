@@ -1,0 +1,30 @@
+import java.util.Scanner;
+public class practiceWithMy14 {
+public static void main(String[] args) {
+	String course [] = {"Java", "C++", "HTML5", "ComputerStructure", "iOS"};
+	int score [] = {95 , 88 ,76 ,62 , 55 };
+	
+	Scanner s = new Scanner(System.in);
+
+	int i, j = 0;
+	for(i = 0; i < course.length; i++) {
+		System.out.print("Subject Name>> : ");
+		String name = s.next();
+		if(name.equals("Stop")) {
+			System.out.println("stop it.");
+			break;
+		}
+		for(j = 0; j <score.length; j++) {
+			if(course[j].equals(name)) {
+				int n = score[j];
+				System.out.println(course[j] + " 's score is " + n);
+				break;
+			}
+			else if(course[j] != name) {
+				System.out.println("This isn't resist in this course.");
+				break;
+			}
+	}
+}
+}
+}
