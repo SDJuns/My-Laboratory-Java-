@@ -1,0 +1,22 @@
+class TV{
+	String brand;
+	int year;
+	int inch;
+	
+	public TV(String brand, int year, int inch) {
+		this.brand = brand;
+		this.year = year;
+		this.inch = inch;
+	}
+	
+	void show() {
+		System.out.println(brand + " make a " + year + "year's " + inch + "inch TV.");
+	}
+}
+
+public class practiceWithMy{
+	public static void main(String[] args) {
+		TV myTV = new TV("LG", 2017, 32);
+		myTV.show();
+	}
+}
