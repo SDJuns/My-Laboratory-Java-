@@ -1,0 +1,29 @@
+import java.util.Scanner;
+class Grade{
+	private int math;
+	private int science;
+	private int english;
+	
+	public Grade(int math, int science, int english) {
+		this.math = math;
+		this.science = science;
+		this.english = english;
+	}
+	public int average() {
+		return (math + science + english) / 3;
+	}
+}
+public class practiceWithMy2 {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		
+		System.out.print("Lay out the math, science, english score >> ");
+		int math = s.nextInt();
+		int science = s.nextInt();
+		int english = s.nextInt();
+		Grade me = new Grade(math, science, english);
+		System.out.print("average is " + me.average());
+		
+		s.close();
+	}
+}
