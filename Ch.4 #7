@@ -1,0 +1,71 @@
+import java.util.Scanner;
+class Day{
+	private String work;
+	public void set(String work) {
+		this.work = work;
+	}
+	public String get() {//recall the work.
+		return work;
+	}
+	public void show() {//Showing the work.
+		if(work == null)
+			System.out.println("null");
+		else
+			System.out.println(work + " is it.");
+	}
+}
+public class practiceWithMy7 {
+	private Scanner s;
+	private Day days[];
+	
+	practiceWithMy7(int day){
+		this.days = new Day[day];
+	    for(int i=0; i<days.length; i++) {
+	       days[i] = new Day();
+	    }
+	    s = new Scanner(System.in);
+	}
+	private void input() {
+		System.out.print("Day(1~30)?");
+		int day = s.nextInt();
+		System.out.print("todo(Insert for no blank.)?");
+		String work = s.next();
+		if(day <= 1 || day >= 29) {
+			System.out.print("null");
+		}
+		days[day].set(work);
+	}
+	private void view() {
+		System.out.print("Day(1~30)?");
+		int day = s.nextInt();
+		if(day <= 1 || day >= 29) { 
+			System.out.println("null");
+			return;
+		}
+		System.out.println(days[day].get() + " ");
+	}
+	private void finish() {
+		System.out.println("End the program.");
+		s.close();
+	}
+	private void run() {
+		System.out.println("This month's scheduler.");
+		System.out.println();
+		while(true) {
+			System.out.print("Daily todo(input : 1 , watch : 2 , end : 3 ) >> ");
+			int choose = s.nextInt();
+			switch(choose) {
+			case 1 : input();
+				break;
+			case 2 : view();
+				break;
+			case 3 : finish();
+				return;
+			}
+		}
+	}
+	public static void main(String[] args) {
+		practiceWithMy7 april = new practiceWithMy7(30);
+		april.run();
+	}
+}
