@@ -1,0 +1,62 @@
+import java.util.Scanner;
+class Phone {
+	private String name;
+	private String number;
+	
+	public Phone(String name, String number) {
+		this.name = name;
+		this.number = number;
+	}
+	public String getName() {
+		return name;
+	}
+	public String getNumber() {
+		return number;
+	}
+	//public void show() {
+	//	if(name == null) {
+	//		System.out.println(name + " is null!");
+	//	}
+	//	else if(number == null) {
+	//		System.out.println(number + " is null!");
+	//	}
+	//	else {
+	//		System.out.println(name + number + " is it!");
+	//	}
+	//}
+}
+public class practiceWithMy8 {
+	public static void main(String[] args) {
+		Phone phone[];
+		int i ;
+		Scanner s = new Scanner(System.in);
+		System.out.print("How many people? >> ");
+		int num = s.nextInt();
+		phone = new Phone[num];
+		
+		for(i = 0; i<phone.length ; i++) {
+			System.out.print("Name and number(Insert without blank.)>> ");
+			String name = s.next();
+			String number = s.next();
+			phone[i] = new Phone(name, number);
+		}System.out.println("Saved.");
+		while(true) {
+			System.out.print("Search the name? >> ");
+			String name = s.next();
+			for(i = 0; i < phone.length; i++) {
+				if(name.equals(phone[i].getName())) {
+					System.out.println(name + "'s number is " + phone[i].getNumber() + ".");
+					i--;
+					break;
+				}
+			}
+			if(name.equals("stop")) {
+				break;
+			}
+			if(i == phone.length) {
+				System.out.println(name + " isn't resist here.");
+			}
+			
+		}
+	}
+}
