@@ -1,0 +1,93 @@
+import java.util.Scanner;
+class Space{
+	private String [] seat;
+	public Space() {
+		seat = new String[10];
+		for(int i = 0; i < seat.length; i++) {
+			seat[i] = " --- ";
+		}
+	}
+	public void Set(String name, int fig) {
+		seat[fig - 1] = name;
+	}
+	public void Show() {
+		for(int i = 0; i < seat.length; i++) {
+			System.out.print(seat[i] + " ");
+		}System.out.println();
+	}
+	public boolean Rechange(String name) {
+		for(int i = 0; i < seat.length; i++) {
+			if(name.equals(seat[i])) {
+				seat[i] = "---";
+				return true;
+			}
+		}
+		return false;
+	}
+}
+class Reservation{
+	Scanner s = new Scanner(System.in);
+	private Space ch[];
+	private String chGrad[] = {"S", "A", "B"};
+	public Reservation() {
+		ch = new Space[3];
+		for(int i = 0; i < ch.length; i++) {
+			ch[i] = new Space();
+		}
+	}
+	public void Reserve() {
+		System.out.print("Seat part is S(1), A(2), B(3) >> ");
+		int a = s.nextInt();
+		System.out.println(chGrad[a - 1] + " >> ");
+		ch[a - 1].Show();
+		System.out.print("name>> ");
+		String name = s.next();
+		System.out.print("number>> ");
+		int fig = s.nextInt();
+		ch[a - 1].Set(name, fig);
+	}
+	public void Check() {
+		for(int i = 0; i < ch.length; i++) {
+			System.out.print(ch[i] + " ");
+			ch[i].Show();
+		}System.out.println("<<<Already checking>>>");
+	}
+	public void Cancel() {
+		System.out.print("Seat is S: 1, A: 2, B: 3 >> ");
+		int num = s.nextInt();
+		System.out.print(chGrad[num - 1] + " >> ");
+		ch[num - 1].Show();
+		
+		System.out.print("name >> ");
+		String name = s.next();
+		
+		ch[num - 1].Rechange(name);
+	}
+	public void Finish() {
+		
+		while(true) {
+			System.out.print("res: 1, cck: 2, cnl: 3, fin: 4 >> ");
+			int figs = s.nextInt();
+			switch(figs) {
+			case 1:
+				Reserve();
+				break;
+			case 2:
+				Check();
+				break;
+			case 3:
+				Cancel();
+				break;
+			case 4:
+				return;
+			}
+		}
+	}
+}
+public class practiceWithMy12 {
+	public static void main(String[] args) {
+		System.out.println("LuxuryConecertHall reservation system.");
+		Reservation r = new Reservation();
+		r.Finish();
+	}
+}
