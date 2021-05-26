@@ -1,0 +1,34 @@
+class TV{
+	private int size;
+	public TV(int size) {this.size = size;}
+	protected int getSize() {return size;}
+}
+public class practiceWithMy extends TV{
+	int pixel;
+	practiceWithMy(int size, int pixel) {
+		super(size);
+		// TODO Auto-generated constructor stub
+		this.pixel = pixel;
+	}
+	public void printPro() {
+		System.out.println(getSize() + " inch " + pixel + "color.");
+	}
+public static class IPTV extends practiceWithMy{
+	String add;
+	IPTV(String add, int size, int pixel) {
+		super(size, pixel);
+		// TODO Auto-generated constructor stub
+		this.add = add;
+	}
+	public void printPro() {
+		System.out.println("My ipTV 's add is " + add + " " + getSize() +" inch " + pixel + " color.");
+		
+	}
+	
+}
+public static void main(String[] args) {
+	IPTV ip = new IPTV("192.1.1.2", 32 , 2048);
+	
+	ip.printPro();
+}
+}
