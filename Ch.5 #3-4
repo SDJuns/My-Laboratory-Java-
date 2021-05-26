@@ -1,0 +1,63 @@
+import java.util.Scanner;
+abstract class Converter{
+	abstract protected double convert(double src);
+	abstract protected String getSrcString();
+	abstract protected String getDestString();
+	protected double ratio;
+	
+	public void run() {
+		Scanner s = new Scanner(System.in);
+		System.out.println(getSrcString() + " is change the " + getDestString() + " .");
+		System.out.print(getSrcString() + "Insert then >> ");
+		double val = s.nextDouble();
+		double res = convert(val);
+		System.out.println("Change result : " + res + getDestString() + " is it. ");
+		s.close();
+	}
+}
+public class practiceWithMy2 extends Converter{
+
+	//public practiceWithMy2(double ratio){
+	//	this.ratio = ratio;
+	//}
+	//@Override
+	//protected double convert(double src) {
+		// TODO Auto-generated method stub
+	//	return src/ratio;
+	//}
+	//@Override
+	//protected String getSrcString() {
+		// TODO Auto-generated method stub
+	//	return "won";
+	//}
+	//@Override
+	//protected String getDestString() {
+		// TODO Auto-generated method stub
+	//	return "dollar";
+	//}
+	public practiceWithMy2(double ratio) {
+		this.ratio = ratio;
+	}
+	@Override
+	protected double convert(double src) {
+		// TODO Auto-generated method stub
+		return src/ratio;
+	}
+
+	@Override
+	protected String getSrcString() {
+		// TODO Auto-generated method stub
+		return "km";
+	}
+
+	@Override
+	protected String getDestString() {
+		// TODO Auto-generated method stub
+		return "mile";
+	}
+	public static void main(String[] args) {
+		practiceWithMy2 toMile = new practiceWithMy2(1.6);
+		toMile.run();
+	}
+
+}
