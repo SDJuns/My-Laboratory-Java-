@@ -1,0 +1,129 @@
+class Point{
+	private int x, y;
+	public Point(int x, int y) {this.x = x; this.y = y;}
+	public int getX() {
+		return x;
+	}
+	public int getY() {
+		return y;
+	}
+	protected void move(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+}
+//class practiceWithMy3 extends Point{ #5
+//	private String col;
+//	public practiceWithMy3(int x, int y, String col) {
+//		super(x, y);
+//		// TODO Auto-generated constructor stub
+//		this.col = col;
+//	}
+//	public void setXY(int x, int y) {
+//		move(x,y);
+//	}
+//	public void setColor(String col) {
+//		this.col = col;
+//	}
+//	public String toString() {
+//		String lin = col + " colors " + "( " + getX() + ", " + getY() + ")";
+//		return lin;
+//	}
+
+//class practiceWithMy3 extends Point{ #6
+//	private String colr;
+//	public practiceWithMy3() {
+//		super(0, 0);
+//		this.colr = "Black";
+//	}
+//	public practiceWithMy3(int x, int y) {
+//		super(x,y);
+//		this.colr = "Black";
+//	}
+//	public void setXY(int x, int y) {
+//		move(x, y);
+//	}
+//	public void setColor(String colr) {
+//		this.colr = colr;
+//	}
+//	public String toString() {
+//		String lin = colr + "colors" + "( " + getX() + ", " + getY() + ") dot.";
+//		return lin;
+//	}
+
+//class practiceWithMy3 extends Point{
+//	private int z;
+//	public practiceWithMy3(int x, int y, int z) {
+//		super(x, y);
+//		// TODO Auto-generated constructor stub
+//		this.z = z;
+//	}
+//	public void moveUp() {
+//		z++;
+//	}
+//	public void moveDown() {
+//		z--;
+//	}
+//	public void move(int x, int y, int z) {
+//		move(x,y);
+//		this.z = z;
+//	}
+//	public String toString() {
+//		String lin = "(" + getX() + ", " + getY()+ ", " + z + ") dot";
+//		return lin;
+//	}
+	
+class practiceWithMy3 extends Point{
+
+	public practiceWithMy3() {
+		super(0, 0);
+	}
+	public practiceWithMy3(int x, int y) {
+		super(x, y);
+		if(x < 0 || y < 0)
+			super.move(0, 0);
+	}
+	protected void move(int x, int y) {
+		if(x > 0 && y > 0)
+			super.move(x, y);
+	}
+	public String toString() {
+		String lin = "(" + getX() + ", " + getY() + ") dot";
+		return lin;
+ 	}
+
+
+	public static void main(String[] args) {
+//		#5
+//		practiceWithMy3 pcm3 = new practiceWithMy3(5, 5, "Yellow");
+//		pcm3.setXY(10, 20);
+//		pcm3.setColor("RED");
+//		String str = pcm3.toString();
+//		System.out.println(str + " is it.");
+//		#6
+//		practiceWithMy3 zeroPoint = new practiceWithMy3();
+//		System.out.println(zeroPoint.toString() + " is it.");
+//		practiceWithMy3 cp = new practiceWithMy3(10, 10);
+//		cp.setXY(5, 5);
+//		cp.setColor("RED");
+//		System.out.println(cp.toString() + " is it.");
+//		#7
+//		practiceWithMy3 pcm3 = new practiceWithMy3(1,2,3);
+//		System.out.println(pcm3.toString() + " is it.");
+//		pcm3.moveUp();
+//		System.out.println(pcm3.toString() + " is it.");
+//		pcm3.moveDown();
+//		pcm3.move(10, 10);
+//		System.out.println(pcm3.toString() + " is it.");
+//		pcm3.move(100,200,300);
+//		System.out.println(pcm3.toString() + " is it.");
+//		#8
+		practiceWithMy3 pcm3 = new practiceWithMy3();
+		pcm3.move(10, 10);
+		System.out.println(pcm3.toString() + " is it.");
+		pcm3.move(-5, 5);
+		System.out.println(pcm3.toString() + " is it.");
+		practiceWithMy3 pcm32nd = new practiceWithMy3(-10, 10);
+		System.out.println(pcm32nd.toString() + " is it.");
+}
+}
