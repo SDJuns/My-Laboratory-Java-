@@ -1,0 +1,77 @@
+import java.util.Scanner;
+interface Stack{
+	int length();
+	int capacity();
+	String pop();
+	boolean push(String val);
+}
+class StackApp implements Stack{
+	private String arr[];
+	private int top;
+	
+	public StackApp(int num) {
+		arr = new String[num]; // create array;
+		top = 0;
+	}
+	
+	@Override
+	public int length() {
+		// TODO Auto-generated method stub
+		return top;
+	}
+
+	@Override
+	public int capacity() {
+		// TODO Auto-generated method stub
+		return arr.length;
+	}
+
+	@Override
+	public String pop() {
+		// TODO Auto-generated method stub
+		if(top == 0)
+			return "empty";
+		else {
+			String str = arr[top - 1];
+			top--;
+			return str;
+		}
+	}
+
+	@Override
+	public boolean push(String val) {
+		// TODO Auto-generated method stub
+		if(top == arr.length)
+			return false;
+		else {
+			arr[top] = val;
+			top++;
+			return true;
+		}
+	}
+}
+public class practiceWithMy4{
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		StackApp sa;
+		System.out.print("Insert the Stack's save area size >> ");
+		sa = new StackApp(s.nextInt());
+		
+		while(true) {
+			System.out.print("Insert the String >> ");
+			String str = s.next();
+			if(str.equals("stop")) {
+				break;
+			}
+			boolean result = sa.push(str);
+			if(result == false)
+				System.out.println("It's the full array, so don't push them.");
+		}
+		System.out.print("Pop the saved all Strings in the stack : ");
+		int len = sa.length();
+		for(int i = 0; i < (len); i++) {
+			System.out.print(sa.pop() + " ");
+		}
+		s.close();
+	}
+}
