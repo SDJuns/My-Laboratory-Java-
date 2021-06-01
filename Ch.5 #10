@@ -1,0 +1,77 @@
+abstract class PairMap{
+	protected String keyArray[];
+	protected String valueArray[];
+	abstract String get(String key);
+	abstract void put(String key, String value);
+	abstract String delete(String key);
+	abstract int length();
+}
+class Dictionary extends PairMap{
+	private int num;
+	private int count = 0;
+	public Dictionary(int num) {
+		// TODO Auto-generated constructor stub
+		this.num = num;
+		keyArray = new String[num];
+		valueArray = new String[num];
+	}
+
+	@Override
+	String get(String key) {
+		// TODO Auto-generated method stub
+		for(int i = 0; i < keyArray.length; i++) {
+			if(key.equals(keyArray[i]))
+				return valueArray[i];
+		}
+		return null;
+	}
+
+	@Override
+	void put(String key, String value) {
+		// TODO Auto-generated method stub
+		if(num == count) {
+			System.out.println("Full of the array.");
+			return;
+		}
+		for(int i = 0; i < count; i++) {
+			if(key.equals(keyArray[i])) {
+				valueArray[i] = value;
+				return;
+			}
+		}
+		keyArray[count] = key;
+		valueArray[count] = value;
+		count++;
+	}
+
+	@Override
+	String delete(String key) {
+		// TODO Auto-generated method stub
+		for(int i = 0; i < count; i++) {
+			if(key.equals(keyArray[i])){
+				valueArray[i] = "null";
+				return "null";
+			}
+		}
+		return "Don't find anyone in this here!! ";
+	}
+
+	@Override
+	int length() {
+		// TODO Auto-generated method stub
+		return count;
+	}
+	
+}
+public class practiceWithMy5 {
+public static void main(String[] args) {
+	Dictionary dic = new Dictionary(10);
+	dic.put("HKT", "Java");
+	dic.put("LJM", "Python");
+	dic.put("LJM", "C++");
+	System.out.println("LJM's " + dic.get("LJM"));
+	System.out.println("HKT's " + dic.get("HKT"));
+	dic.delete("HKT");
+	System.out.println("HKT's " + dic.get("HKT"));
+}
+}
