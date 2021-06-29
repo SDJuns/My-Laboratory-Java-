@@ -1,0 +1,25 @@
+package dongjun;
+
+import java.util.Calendar;
+
+public class Practice5 {
+	public static void main(String[] args) {
+		Calendar now = Calendar.getInstance();
+		
+		int hour = now.get(Calendar.HOUR);
+		int minute = now.get(Calendar.MINUTE);
+		System.out.println("Now is " + hour + " ."+ minute + " time.");
+		
+		if(hour > 4 && hour < 12) {
+			System.out.println("Good morning.");
+		}
+		else if(hour >= 12 && hour < 18) {
+			System.out.println("Good afternoon.");
+		}
+		else if(hour >= 18 && hour < 22) {
+			System.out.println("Good evening.");
+		}
+		else
+			System.out.println("Good night.");
+	}
+}
