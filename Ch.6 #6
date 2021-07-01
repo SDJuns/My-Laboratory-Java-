@@ -1,0 +1,56 @@
+package dongjun;
+
+import java.util.Calendar;
+import java.util.Scanner;
+
+class Game{
+	private Calendar now = Calendar.getInstance();
+	private Scanner s = new Scanner(System.in);
+	private int fig1, fig2;
+	private String name, blank;
+	
+	public Game(String name) {
+		this.name = name;
+	}
+	
+	public int Sec() {
+		System.out.print(name + " start<Enter>key >> ");
+		fig1 = empty();
+		System.out.print("Expect the 10seconds after<Enter>key >> ");
+		fig2 = empty();
+		
+		if(fig2 > fig1) {
+			return fig2 - fig1;
+		}
+		else {
+			return (60 - fig1) + fig2;
+		}
+	}
+	
+	public int empty() {
+		blank = s.nextLine();
+		now = Calendar.getInstance();
+		System.out.println("\t Now time is = " + now.get(Calendar.SECOND));
+		return now.get(Calendar.SECOND);
+	}
+	
+}
+
+public class Practice6 {
+	public static void main(String[] args) {
+		Game game1 = new Game("HGT");
+		Game game2 = new Game("LJM");
+		
+		System.out.println("Winner of this game is near by 10seconds.");
+		int result1 = game1.Sec();
+		int result2 = game2.Sec();
+		
+		if(Math.abs(result1 - 10) < Math.abs(result2 - 10))
+			System.out.println("HGT's result is " + result1 + ", LJM's result is " + result2 + " Winner is HGT." );
+		else if(Math.abs(result2) == Math.abs(result1))
+			System.out.println("draw.");
+		else
+			System.out.println("HGT's result is " + result1 + ", LJM's result is " + result2 + " Winner is LJM." );
+		
+	}
+}
