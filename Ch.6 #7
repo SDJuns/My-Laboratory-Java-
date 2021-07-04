@@ -1,0 +1,25 @@
+package dongjun;
+
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Practice7 {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		while(true) {
+			System.out.print(">> ");
+			String line = s.nextLine();
+			
+			if(line.equals("stop")) {
+				System.out.println("Ending...");
+				break;
+			}
+			
+			StringTokenizer st = new StringTokenizer(line, " ");
+			int n = st.countTokens();
+			
+			System.out.println("blanking numbers are " + n);
+		}
+		s.close();
+	}
+}
