@@ -1,0 +1,73 @@
+package dongjun;
+import java.util.Scanner;
+
+class Gamer{
+	private String name;
+	private Scanner s = new Scanner(System.in);
+	public Gamer(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public int select() {
+		System.out.print(name + "[ sci(1), roc(2), pap(3), end(4)]>> ");
+		return s.nextInt();
+	}
+}
+
+class Computer extends Gamer{
+	public Computer(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public int select() {
+		return (int)(Math.random() * 3 + 1);
+	}
+}
+
+public class Practice9 {
+	private final String arr[] = {"sci", "roc", "pap"};
+	private Gamer gamer[] = new Gamer[2];
+	
+	public Practice9() {
+		gamer[0] = new Gamer("CS");
+		gamer[1] = new Computer("Computer");
+	}
+	
+	public void Run() {
+		int users, computers;
+		
+		while(true) {
+			users = gamer[0].select();
+			
+			computers = gamer[1].select();
+			
+			if(users == 4) {
+				break;
+			}
+			System.out.println(gamer[0].getName() + "(" + arr[users-1] + ") : " + gamer[1].getName() + "(" + arr[computers-1] + ")");
+			
+			switch(users - computers) {
+			case 0:
+				System.out.println("draw!");
+				break;
+			case 1:
+			case -2:
+				System.out.println(gamer[0].getName() + " is win.");
+				break;
+			case -1:
+			case 2:
+				System.out.println(gamer[1].getName() + " is win.");
+				break;
+			}
+		}
+	}
+	public static void main(String[] args) {
+		Practice9 p9 = new Practice9();
+		p9.Run();
+	}
+}
