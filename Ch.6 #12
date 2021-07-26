@@ -1,0 +1,54 @@
+package dongjun;
+import java.util.Scanner;
+
+class Person1{
+	public String name;
+	
+	public Person1(String name) {
+		this.name = name;
+	}
+	
+	public boolean Game() {
+		int num[] = new int[3];
+		
+		for(int i = 0; i < num.length; i++) {
+			num[i] = (int)(Math.random() * 3 + 1);
+			System.out.print("\t" + num[i]);
+		}
+		
+		boolean result = true;
+		for(int i = 0 ; i < num.length; i++) {
+			if(num[0] != num[i]) {
+				result = false;
+				break;
+			}
+		}
+		return result;
+	}
+}
+public class Practice12 {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		System.out.print("How many people in this game>> ");
+		int n1 = s.nextInt();
+		Person1[] person = new Person1[n1];
+		for(int i = 0; i < n1; i++) {
+			System.out.print((i + 1) + "number's name >> ");
+			String name = s.next();
+			person[i] = new Person1(name);
+		}
+		String blank = s.nextLine();
+		while(true) {
+			for(int i = 0; i < n1; i++) {
+				System.out.print("[" + person[i].name + "] : <Enter>");
+				blank = s.nextLine();
+				if(person[i].Game() == true) {
+					System.out.println("\t" + person[i].name + " is win!");
+					s.close();
+					return;
+				}
+				System.out.println("\t" + "Lacking!,,");
+			}
+		}
+	}
+}
