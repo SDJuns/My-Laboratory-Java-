@@ -1,0 +1,24 @@
+import java.util.*;
+public class Practice1 {
+	public static void main(String[] args) {
+		Vector<Integer> v = new Vector<Integer>();
+		
+		Scanner s = new Scanner(System.in);
+		System.out.print("num(until -1.)>>");
+		
+		while(true) {
+			int num = s.nextInt();
+			if(num == -1) {
+				break;
+			}
+			v.add(num);
+		}
+		int MN = v.get(0);
+		for(int i = 1; i < v.size(); i++) {
+			if(MN < v.get(i))
+				MN = v.get(i);
+		}
+		System.out.println(MN);
+		s.close();
+	}
+}		
