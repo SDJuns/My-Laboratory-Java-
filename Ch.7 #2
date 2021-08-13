@@ -1,0 +1,41 @@
+import java.util.*;
+public class Practice2 {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		
+		ArrayList<Character> al = new ArrayList<Character>();
+		
+		System.out.print("Split input the 6 grades(A/B/C/D/f)>>");
+		for(int i = 0 ; i < 6; i++) {
+			char grade = s.next().charAt(0);
+			al.add(grade);
+		}
+		
+		double sum = 0.0;
+		double average;
+		
+		for(int i = 0; i < al.size(); i++) {
+			switch(al.get(i)) {
+			case 'A':
+				sum += 4.0;
+				break;
+			case 'B':
+				sum += 3.0;
+				break;
+			case 'C':
+				sum += 2.0;
+				break;
+			case 'D':
+				sum += 1.0;
+				break;
+			case 'F':
+				sum += 0.0;
+				break;
+			}
+		}
+			average = sum / 6;
+			System.out.println(average);
+			
+			s.close();
+	}
+}
